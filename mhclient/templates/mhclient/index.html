@@ -1,0 +1,16 @@
+{% block body%}
+	<h1><a href="{% url 'mhclient:human-add' %}">Make Human</a></h1>
+	{% if all_humans %}
+		<h1>Here are my all object_</h1>
+		<ul>
+			{% for human in all_humans %}
+				<li>
+					<h2><a href="{% url 'mhclient:detail' human.pk %}">{{human.human_name}}</a></h2>
+				</li>
+			{% endfor %}
+		</ul>
+
+	{% else %}
+		<h1>There is No Human to Display</h1>
+	{% endif %}
+{% endblock %}

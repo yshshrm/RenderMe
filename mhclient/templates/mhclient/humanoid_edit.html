@@ -1,0 +1,12 @@
+{% block body %}
+
+<form action="" method="post" >
+	{% csrf_token %}
+	{% include 'mhclient/form-template.html' %}
+	<div ></div>
+		<div >
+		<button type="submit" >Submit</button>
+		</div>
+</form>
+
+{% endblock %}
