@@ -7,7 +7,7 @@ import clmh
 
 # Create your models here.
 class Humanoid(models.Model):  					
-    human_name = models.CharField(default='nabeel',max_length=200)
+    human_name = models.CharField(default='test',max_length=200)
     gender = models.FloatField(default=1.0)
     age = models.IntegerField(default = 23)
     weight = models.FloatField(default = 0.5)

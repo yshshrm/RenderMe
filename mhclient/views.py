@@ -7,6 +7,12 @@ from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from .models import Humanoid
 import clmh
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Humanoid
+from .serializers import HumanoidSerializer
+
 # Create your views here.
 class IndexView(generic.ListView):
 	template_name="mhclient/index.html"
@@ -32,3 +38,11 @@ class HumanoidCreate(CreateView):
 class HumanoidEdit(UpdateView):
 	model=Humanoid
 	fields=['age','human_name','gender','weight','muscle','height']
+
+
+class HumanoidList(APIView):
+
+    def get(self, request):
+        humanoids = Humanoid.objects.all()
+        serializer = HumanoidSerializer(humanoids, many=True)
+        return Response(serializer.data)

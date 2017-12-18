@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^human/add$', views.HumanoidCreate.as_view(), name='human-add'),
     url(r'^(?P<human_id>[0-9]+)/humanoidedit$', views.HumanoidEdit.as_view(), name='humanoidedit'),
     url(r'^(?P<human_id>[0-9]+)/delete$', views.deleteobj, name='deleteobj'),
+    url(r'^api/', views.HumanoidList.as_view()),
 ]

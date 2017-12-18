@@ -1,13 +1,13 @@
 <html>
 <head>
 	{% load staticfiles %}
-	<script type="text/javascript" src="{% static 'room/libs/three.js' %}"></script>
-    <script type="text/javascript" src="{% static 'room/libs/OBJLoader.js' %}"></script>
-    <script type="text/javascript" src="{% static 'room/libs/MTLLoader.js' %}"></script>
-    <script type="text/javascript" src="{% static 'room/libs/OBJMTLLoader.js' %}"></script>
+	<script type="text/javascript" src="{% static 'mhclient/libs/three.js' %}"></script>
+    <script type="text/javascript" src="{% static 'mhclient/libs/OBJLoader.js' %}"></script>
+    <script type="text/javascript" src="{% static 'mhclient/libs/MTLLoader.js' %}"></script>
+    <script type="text/javascript" src="{% static 'mhclient/libs/OBJMTLLoader.js' %}"></script>
 
-    <script type="text/javascript" src="{% static 'room/libs/stats.js' %}"></script>
-    <script type="text/javascript" src="{% static 'room/libs/dat.gui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'mhclient/libs/stats.js' %}"></script>
+    <script type="text/javascript" src="{% static 'mhclient/libs/dat.gui.js' %}"></script>
 </head>
 
 <body>
@@ -17,6 +17,7 @@
 <h3>Muscle : {{human.muscle}}</h3>
 <h3>Gender : {{human.gender}}</h3>
 <h3>Height : {{human.height}}</h3>
+{{human.pk}}
 
 <a href="{% url 'mhclient:humanoidedit' human.pk%}">Edit Information</a>
 <a href="{% url 'mhclient:deleteobj' human.pk %}">Delete</a>
