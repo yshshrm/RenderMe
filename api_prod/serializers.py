@@ -6,4 +6,4 @@ class HumanoidApiSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HumanoidApi
-        fields = ('name', 'height_cm', 'weight_kg', 'chest_cm', 'waist_cm', 'age', 'body_fat_distribution')
+        fields = ('name', 'key_string', 'image_path', 'gender', 'age', 'skin_color','height_cm', 'weight_kg', 'chest_cm', 'waist_cm',  'body_fat_distribution', )
