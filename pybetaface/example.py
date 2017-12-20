@@ -7,6 +7,6 @@ import json
 logging.basicConfig(level = logging.INFO)
 client = BetaFaceAPI()
 
-face_info = client.upload_face('./face.jpg', 'yash@ami-lab.ro')
+face_info = client.upload_face('/home/yash/Desktop/mhcli/pybetaface/image.jpeg', 'yash@ami-lab.ro')
 
 print json.dumps(face_info, indent = 4)
