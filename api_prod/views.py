@@ -33,7 +33,7 @@ def snippet_list(request):
         serializer = HumanoidApiSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            clmh.saviour(serializer.data['age'], serializer.data['gender'], serializer.data['weight_kg'], serializer.data['body_fat_distribution'], serializer.data['height_cm'], serializer.data['name'], serializer.data['key_string'], serializer.data['image_path'])
+            clmh.saviour(serializer.data['age'], serializer.data['gender'], serializer.data['weight_kg'], serializer.data['body_fat_distribution'], serializer.data['height_cm'], serializer.data['name'], serializer.data['key_string'], serializer.data['image_path'], serializer.data['chest_cm'], serializer.data['waist_cm'], serializer.data['skin_color'])
 
             fpa = os.path.abspath(os.curdir) + '/static/api_prod/assets/models/' + serializer.data['name'] + '.obj'
 
