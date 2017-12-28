@@ -74,36 +74,34 @@ def saviour(age, gendere, weighte, body_proportion, heighte, name, key_string, i
 		humanoid.setCaucasian(1)
 	elif(skin_color == '2'):
 		humanoid.setCaucasian(0.7)
-	elif(skin_color == '3'):
-		continue
 	elif(skin_color == '4'):
 		humanoid.setAsian(0.5)
 	elif(skin_color == '5'):
 		humanoid.setAfrican(0.6)
 	elif(skin_color == '6'):
 		humanoid.setAfrican(0.7)
-	else:
-		continue
 	
 	if (gendere == 1):
 		humanoid.setHeight(mcmtofr(heighte, age))
 	else:
 		humanoid.setHeight(fcmtofr(heighte, age))
 
-
-	## temporary till further study on relation in makehuman between body proportion, muscle and weight
-
-	weight = weighte/80
-
-	##------------------
-	humanoid.setAge(age / 70)
-	humanoid.setWeight(weighte)
+	humanoid.setAgeYears(age)
 	humanoid.setGender(gendere)
+
+	humanoid.setWeight(1)
 	humanoid.setBodyProportions(body_proportion)
+
+	BMI = weighte / ((heighte/100) * (heighte/100))
+
+	if(BMI )
+
 
 
 	## Modelling the face using BetaFaceAPI
 	if(len(image_path) > 1):
+
+		print "Inside facial modelling"
 		photo_instance = api.BetaFaceAPI()
 		photo_info = photo_instance.upload_face(image_path, 'modestreet@internet')
 
@@ -118,32 +116,44 @@ def saviour(age, gendere, weighte, body_proportion, heighte, name, key_string, i
 			if(prop == 'eyes distance'):
 				if(value == 'extra far'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-trans-out.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-out.target', 0.6)
 				elif(value == 'far'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-trans-out.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-out.target', 0.3)
 				elif(value == 'close'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-trans-in.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-in.target', 0.3)
 				elif(value == 'extra close'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-trans-in.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-in.target', 0.6)
 
 			elif(prop == 'eyes position'):
 				if(value == 'extra low'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-trans-down.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-down.target', 0.6)
 				elif(value == 'low'):
-					Humanoid.setDetail(dpa + 'eyes/l-eye-trans-down.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/l-eye-trans-down.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-down.target', 0.3)
 				elif(value == 'high'):
-					Humanoid.setDetail(dpa + 'eyes/l-eye-trans-up.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/l-eye-trans-up.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-up.target', 0.3)
 				elif(value == 'extra high'):
-					Humanoid.setDetail(dpa + 'eyes/l-eye-trans-up.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/l-eye-trans-up.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/r-eye-trans-up.target', 0.6)
 			
 			elif(prop == 'eyes shape'):
 				if(value == 'extra round'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-height2-incr.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/r-eye-height2-incr.target', 0.6)
 				elif(value == 'round'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-height2-incr.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/r-eye-height2-incr.target', 0.3)
 				elif(value == 'thin'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-height2-decr.target', 0.3)
+					humanoid.setDetail(dpa + 'eyes/r-eye-height2-decr.target', 0.3)
 				elif(value == 'extra thin'):
 					humanoid.setDetail(dpa + 'eyes/l-eye-height2-decr.target', 0.6)
+					humanoid.setDetail(dpa + 'eyes/r-eye-height2-decr.target', 0.6)
 
 			### mouth
 			elif(prop == 'mouth corners'):
@@ -219,12 +229,13 @@ def saviour(age, gendere, weighte, body_proportion, heighte, name, key_string, i
 				elif(value == 'extra rect'):
 					humanoid.setDetail(dpa + 'head/head-rectangular.target', 0.5)
 	
-
 	## move ear wings inwards, looks better with ears adjusted
 	humanoid.setDetail(dpa + 'ears/l-ear-wing-decr.target', 0.5)
 	humanoid.setDetail(dpa + 'ears/r-ear-wing-decr.target', 0.5)
 
 	humanoid.applyAllTargets()
+
+	print humanoid.targetsDetailStack
 	wavefront.writeObjFile(fpa + name + '.obj' , humanoid.mesh)
 
 def delete_obj(ide):

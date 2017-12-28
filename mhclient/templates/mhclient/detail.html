@@ -96,7 +96,7 @@
         // scene.add(cube);
 
         var loader = new THREE.OBJLoader();
-        loader.load("{% static 'mhclient/assets/models/' %}{{human.pk}}.obj"  , function (loadedMesh) {
+        loader.load("/home/yash/Desktop/mhcli/api_prod/static/api_prod/assets/models/SRK.obj"  , function (loadedMesh) {
             var material = new THREE.MeshLambertMaterial({color: 0x5C3A21});
             // loadedMesh is a group of meshes. For
             // each mesh set the material, and compute the information

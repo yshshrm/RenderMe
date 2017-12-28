@@ -42,4 +42,4 @@ def snippet_list(request):
         return JsonResponse(serializer.errors, status=400)
 
 def detail(request, path):
-	return render(request, 'mhclient/detail.html', {'path': path})
+	return render(request, 'api/detail.html', {'path': path})
