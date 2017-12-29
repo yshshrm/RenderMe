@@ -89,14 +89,19 @@ def saviour(age, gendere, weighte, body_proportion, heighte, name, key_string, i
 	humanoid.setAgeYears(age)
 	humanoid.setGender(gendere)
 
-	humanoid.setWeight(1)
-	humanoid.setBodyProportions(body_proportion)
+	# setting muscle to zero is the only way after which we can add fat to the body (by increasing weight, through calculating BMI)
+	humanoid.setMuscle(0)
 
 	BMI = weighte / ((heighte/100) * (heighte/100))
 
-	if(BMI )
-
-
+	if (BMI > 30):
+		humanoid.setWeight(0.9)
+	elif (BMI > 26):
+		humanoid.setWeight(0.7)
+	elif (BMI > 18.5):
+		humanoid.setWeight(0.5)
+	else:
+		humanoid.setWeight(0.3)
 
 	## Modelling the face using BetaFaceAPI
 	if(len(image_path) > 1):
@@ -236,7 +241,7 @@ def saviour(age, gendere, weighte, body_proportion, heighte, name, key_string, i
 	humanoid.applyAllTargets()
 
 	print humanoid.targetsDetailStack
-	wavefront.writeObjFile(fpa + name + '.obj' , humanoid.mesh)
+	wavefront.writeObjFile(fpa +  name + '.obj', humanoid.mesh)
 
 def delete_obj(ide):
 	os.remove(fpa + str(ide) + '.obj')
