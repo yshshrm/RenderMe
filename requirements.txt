@@ -19,7 +19,7 @@ gevent==1.2.2
 greenlet==0.4.12
 guacamole==0.9.2
 html5lib==0.999
-httplib2==0.9.1
+httplib2==0.18.0
 idna==2.6
 imagesize==0.7.1
 Jinja2==2.8
