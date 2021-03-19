@@ -22,7 +22,7 @@ html5lib==0.999
 httplib2==0.9.1
 idna==2.6
 imagesize==0.7.1
-Jinja2==2.8
+Jinja2==2.11.3
 kazam==1.4.5
 language-selector==0.1
 louis==2.6.4
